@@ -5,13 +5,13 @@ This file tracks all planned improvements and tasks for the fn application. Chec
 ## Phase 1: Core Completion (HIGH PRIORITY)
 
 ### Missing Core Features
-- [ ] **Implement edit command** - Update existing alias to current directory (mentioned in root.go but not implemented)
-- [ ] **Add cleanup command** - Remove dead/missing bookmarks automatically
-- [ ] **Add search/filter functionality** - Find bookmarks by path or alias patterns
-- [ ] **Add tab completion** - Shell completion for aliases
+- [x] **Implement edit command** - Update existing alias to current directory (mentioned in root.go but not implemented)
+- [x] **Add cleanup command** - Remove dead/missing bookmarks automatically
+- [x] **Add search/filter functionality** - Find bookmarks by path or alias patterns
+- [x] **Add tab completion** - Shell completion for aliases
 
 ### Testing Infrastructure (CRITICAL)
-- [ ] **Create storage_test.go** - Unit tests for storage layer
+- [x] **Create storage_test.go** - Unit tests for storage layer
 - [ ] **Add CLI command tests** - Test all cobra commands
 - [ ] **Add integration tests** - End-to-end testing
 - [ ] **Set up test coverage reporting** - Track test coverage

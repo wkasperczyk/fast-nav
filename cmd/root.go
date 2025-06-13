@@ -1,9 +1,6 @@
 package cmd
 
 import (
-	"fmt"
-	"os"
-
 	"github.com/spf13/cobra"
 )
 
@@ -19,7 +16,9 @@ Usage:
   fn list             List all saved aliases
   fn delete <alias>   Remove a saved alias
   fn path <alias>     Print path without navigating
-  fn edit <alias>     Update existing alias to current directory`,
+  fn edit <alias>     Update existing alias to current directory
+  fn cleanup          Remove bookmarks pointing to non-existent directories
+  fn search <pattern> Find bookmarks by alias or path pattern`,
 }
 
 func Execute() error {
@@ -32,4 +31,8 @@ func init() {
 	rootCmd.AddCommand(deleteCmd)
 	rootCmd.AddCommand(navigateCmd)
 	rootCmd.AddCommand(pathCmd)
+	rootCmd.AddCommand(editCmd)
+	rootCmd.AddCommand(cleanupCmd)
+	rootCmd.AddCommand(searchCmd)
+	rootCmd.AddCommand(completionCmd)
 }
