@@ -12,10 +12,10 @@ This file tracks all planned improvements and tasks for the fn application. Chec
 
 ### Testing Infrastructure (CRITICAL)
 - [x] **Create storage_test.go** - Unit tests for storage layer
-- [ ] **Add CLI command tests** - Test all cobra commands
-- [ ] **Add integration tests** - End-to-end testing
-- [ ] **Set up test coverage reporting** - Track test coverage
-- [ ] **Add benchmark tests** - Performance testing for storage operations
+- [x] **Add CLI command tests** - Test all cobra commands
+- [x] **Add integration tests** - End-to-end testing
+- [x] **Set up test coverage reporting** - Track test coverage
+- [x] **Add benchmark tests** - Performance testing for storage operations
 
 ### Error Handling & Reliability
 - [ ] **Improve error messages** - More user-friendly error output
