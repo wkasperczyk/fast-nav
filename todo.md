@@ -32,8 +32,8 @@ This file tracks all planned improvements and tasks for the fn application. Chec
 ### Installation & Setup
 - [x] **One-line install script** - curl | bash style installer
 - [x] **Uninstall functionality** - Clean removal of binary and shell function
-- [ ] **Auto-detection of shell type** - Better shell configuration detection
-- [ ] **Windows support** - PowerShell integration
+- [x] **Auto-detection of shell type** - Better shell configuration detection
+- [x] **Windows support** - PowerShell integration
 
 ### Shell Integration
 - [x] **Bash completion script** - Tab completion for bash
