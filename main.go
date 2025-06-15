@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/rethil/fn/cmd"
+	"github.com/rethil/fast-nav/cmd"
 )
 
 func main() {

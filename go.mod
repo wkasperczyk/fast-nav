@@ -1,4 +1,4 @@
-module github.com/rethil/fn
+module github.com/rethil/fast-nav
 
 go 1.21
 
