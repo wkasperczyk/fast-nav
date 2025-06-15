@@ -9,9 +9,10 @@ import (
 )
 
 var deleteCmd = &cobra.Command{
-	Use:   "delete <alias>",
-	Short: "Remove a saved alias",
-	Args:  cobra.ExactArgs(1),
+	Use:               "delete <alias>",
+	Short:             "Remove a saved alias",
+	Args:              cobra.ExactArgs(1),
+	ValidArgsFunction: aliasCompletionFunc,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		alias := args[0]
 		
@@ -51,3 +52,4 @@ var deleteCmd = &cobra.Command{
 		return nil
 	},
 }
+

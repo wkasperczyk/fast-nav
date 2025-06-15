@@ -25,20 +25,20 @@ This file tracks all planned improvements and tasks for the fn application. Chec
 ## Phase 2: User Experience
 
 ### Enhanced Navigation
-- [ ] **Fuzzy matching for navigation** - Partial alias matching
-- [ ] **Recently used shortcuts** - Quick access to frequent bookmarks
-- [ ] **Smart suggestions** - Suggest similar aliases on typos
+- [x] **Fuzzy matching for navigation** - Partial alias matching
+- [x] **Recently used shortcuts** - Quick access to frequent bookmarks
+- [x] **Smart suggestions** - Suggest similar aliases on typos
 
 ### Installation & Setup
-- [ ] **One-line install script** - curl | bash style installer
-- [ ] **Uninstall functionality** - Clean removal of binary and shell function
+- [x] **One-line install script** - curl | bash style installer
+- [x] **Uninstall functionality** - Clean removal of binary and shell function
 - [ ] **Auto-detection of shell type** - Better shell configuration detection
 - [ ] **Windows support** - PowerShell integration
 
 ### Shell Integration
-- [ ] **Bash completion script** - Tab completion for bash
-- [ ] **Zsh completion script** - Tab completion for zsh
-- [ ] **Fish shell support** - Support for fish shell users
+- [x] **Bash completion script** - Tab completion for bash
+- [x] **Zsh completion script** - Tab completion for zsh
+- [x] **Fish shell support** - Support for fish shell users
 
 ## Phase 3: Advanced Features
 

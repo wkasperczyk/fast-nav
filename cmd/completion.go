@@ -1,35 +1,60 @@
 package cmd
 
 import (
-	"fmt"
-	"strings"
+	"os"
 
-	"github.com/spf13/cobra" 
-	"github.com/rethil/fn/internal/storage"
+	"github.com/spf13/cobra"
 )
 
 var completionCmd = &cobra.Command{
-	Use:    "completion <word>",
-	Short:  "Generate tab completion for aliases",
-	Long:   `Generate tab completion suggestions for bookmark aliases.`,
-	Args:   cobra.ExactArgs(1),
-	Hidden: true,
-	RunE: func(cmd *cobra.Command, args []string) error {
-		currentWord := args[0]
-		
-		store, err := storage.NewStore()
-		if err != nil {
-			return err
+	Use:   "completion [bash|zsh|fish|powershell]",
+	Short: "Generate completion script",
+	Long: `To load completions:
+
+Bash:
+  $ source <(fn completion bash)
+
+  # To load completions for each session, execute once:
+  # Linux:
+  $ fn completion bash > /etc/bash_completion.d/fn
+  # macOS:
+  $ fn completion bash > /usr/local/etc/bash_completion.d/fn
+
+Zsh:
+  # If shell completion is not already enabled, run once:
+  $ echo "autoload -U compinit; compinit" >> ~/.zshrc
+
+  $ source <(fn completion zsh)
+
+  # To load completions for each session, execute once:
+  $ fn completion zsh > "${fpath[1]}/_fn"
+
+Fish:
+  $ fn completion fish | source
+
+  # To load completions for each session, execute once:
+  $ fn completion fish > ~/.config/fish/completions/fn.fish
+
+PowerShell:
+  PS> fn completion powershell | Out-String | Invoke-Expression
+
+  # To load completions for every new session, run:
+  PS> fn completion powershell > fn.ps1
+  # and source this file from your PowerShell profile.
+`,
+	DisableFlagsInUseLine: true,
+	ValidArgs:             []string{"bash", "zsh", "fish", "powershell"},
+	Args:                  cobra.MatchAll(cobra.ExactArgs(1), cobra.OnlyValidArgs),
+	Run: func(cmd *cobra.Command, args []string) {
+		switch args[0] {
+		case "bash":
+			cmd.Root().GenBashCompletion(os.Stdout)
+		case "zsh":
+			cmd.Root().GenZshCompletion(os.Stdout)
+		case "fish":
+			cmd.Root().GenFishCompletion(os.Stdout, true)
+		case "powershell":
+			cmd.Root().GenPowerShellCompletionWithDesc(os.Stdout)
 		}
-		
-		bookmarks := store.GetAllBookmarks()
-		
-		for alias := range bookmarks {
-			if strings.HasPrefix(alias, currentWord) {
-				fmt.Println(alias)
-			}
-		}
-		
-		return nil
 	},
 }

@@ -9,10 +9,11 @@ import (
 )
 
 var editCmd = &cobra.Command{
-	Use:   "edit <alias>",
-	Short: "Update existing alias to current directory", 
-	Long:  `Update an existing bookmark alias to point to the current directory.`,
-	Args:  cobra.ExactArgs(1),
+	Use:               "edit <alias>",
+	Short:             "Update existing alias to current directory", 
+	Long:              `Update an existing bookmark alias to point to the current directory.`,
+	Args:              cobra.ExactArgs(1),
+	ValidArgsFunction: aliasCompletionFunc,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		alias := args[0]
 		

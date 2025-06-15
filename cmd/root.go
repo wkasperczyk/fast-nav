@@ -18,7 +18,9 @@ Usage:
   fn path <alias>     Print path without navigating
   fn edit <alias>     Update existing alias to current directory
   fn cleanup          Remove bookmarks pointing to non-existent directories
-  fn search <pattern> Find bookmarks by alias or path pattern`,
+  fn search <pattern> Find bookmarks by alias or path pattern
+  fn recent [index]   Navigate to recently used bookmarks
+  fn uninstall        Uninstall fn and remove shell integration`,
 }
 
 func Execute() error {
@@ -35,4 +37,5 @@ func init() {
 	rootCmd.AddCommand(cleanupCmd)
 	rootCmd.AddCommand(searchCmd)
 	rootCmd.AddCommand(completionCmd)
+	rootCmd.AddCommand(recentCmd)
 }

@@ -8,9 +8,10 @@ import (
 )
 
 var pathCmd = &cobra.Command{
-	Use:   "path <alias>",
-	Short: "Print path without navigating",
-	Args:  cobra.ExactArgs(1),
+	Use:               "path <alias>",
+	Short:             "Print path without navigating",
+	Args:              cobra.ExactArgs(1),
+	ValidArgsFunction: aliasCompletionFunc,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		alias := args[0]
 		
