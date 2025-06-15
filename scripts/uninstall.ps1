@@ -39,7 +39,7 @@ function Get-PowerShellInfo {
 function Remove-Binary {
     param($InstallPath)
     
-    $binaryPath = Join-Path $InstallPath "fn.exe"
+    $binaryPath = Join-Path $InstallPath "fast-nav.exe"
     
     # Remove binary
     if (Test-Path $binaryPath) {

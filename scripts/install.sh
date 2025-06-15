@@ -51,9 +51,9 @@ install_binary() {
         exit 1
     fi
     
-    print_status "Installing fn to $install_dir..."
-    cp fn "$install_dir/fn"
-    chmod +x "$install_dir/fn"
+    print_status "Installing fast-nav to $install_dir..."
+    cp fast-nav "$install_dir/fast-nav"
+    chmod +x "$install_dir/fast-nav"
     print_status "Binary installed successfully"
 }
 
@@ -141,9 +141,9 @@ generate_shell_function() {
 # fn - Fast Navigation
 fn() {
     if [[ "$1" == "save" ]] || [[ "$1" == "list" ]] || [[ "$1" == "delete" ]] || [[ "$1" == "path" ]] || [[ "$1" == "edit" ]] || [[ "$1" == "cleanup" ]]; then
-        command fn "$@"
+        command fast-nav "$@"
     else
-        local dir=$(command fn navigate "$@")
+        local dir=$(command fast-nav navigate "$@")
         if [[ -n "$dir" ]]; then
             cd "$dir"
         fi
@@ -157,9 +157,9 @@ EOF
 # fn - Fast Navigation
 function fn
     if contains $argv[1] save list delete path edit cleanup
-        command fn $argv
+        command fast-nav $argv
     else
-        set dir (command fn navigate $argv)
+        set dir (command fast-nav navigate $argv)
         if test -n "$dir"
             cd "$dir"
         end
@@ -171,7 +171,7 @@ EOF
             cat << 'EOF'
 
 # fn - Fast Navigation
-alias fn 'set args = (\!*); if ("$args[1]" == "save" || "$args[1]" == "list" || "$args[1]" == "delete" || "$args[1]" == "path" || "$args[1]" == "edit" || "$args[1]" == "cleanup") then; command fn $args; else; set dir = `command fn navigate $args`; if ("$dir" != "") cd "$dir"; endif'
+alias fn 'set args = (\!*); if ("$args[1]" == "save" || "$args[1]" == "list" || "$args[1]" == "delete" || "$args[1]" == "path" || "$args[1]" == "edit" || "$args[1]" == "cleanup") then; command fast-nav $args; else; set dir = `command fast-nav navigate $args`; if ("$dir" != "") cd "$dir"; endif'
 EOF
             ;;
     esac
@@ -222,8 +222,8 @@ main() {
     print_status "Installing fn - Fast Navigation Tool"
     
     # Check if binary exists
-    if [[ ! -f "fn" ]]; then
-        print_error "Binary 'fn' not found. Please build it first with: go build -o fn"
+    if [[ ! -f "fast-nav" ]]; then
+        print_error "Binary 'fast-nav' not found. Please build it first with: go build -o fast-nav"
         exit 1
     fi
     

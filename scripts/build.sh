@@ -122,11 +122,11 @@ main() {
         print_status "Building for current platform ($current_os/$current_arch)..."
         
         if [[ "$current_os" == "windows" ]]; then
-            go build -o "fn.exe" -ldflags "-s -w"
-            print_status "Built: fn.exe"
+            go build -o "fast-nav.exe" -ldflags "-s -w"
+            print_status "Built: fast-nav.exe"
         else
-            go build -o "fn" -ldflags "-s -w"
-            print_status "Built: fn"
+            go build -o "fast-nav" -ldflags "-s -w"
+            print_status "Built: fast-nav"
         fi
     fi
 }

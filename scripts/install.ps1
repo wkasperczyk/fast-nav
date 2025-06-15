@@ -49,8 +49,8 @@ function Install-Binary {
     param($InstallPath)
     
     # Check if binary exists
-    if (-not (Test-Path "fn.exe")) {
-        Write-Error "Binary 'fn.exe' not found. Please build it first."
+    if (-not (Test-Path "fast-nav.exe")) {
+        Write-Error "Binary 'fast-nav.exe' not found. Please build it first."
         exit 1
     }
     
@@ -61,8 +61,8 @@ function Install-Binary {
     }
     
     # Copy binary
-    $targetPath = Join-Path $InstallPath "fn.exe"
-    Copy-Item "fn.exe" $targetPath -Force
+    $targetPath = Join-Path $InstallPath "fast-nav.exe"
+    Copy-Item "fast-nav.exe" $targetPath -Force
     Write-Info "Binary installed: $targetPath"
     
     # Add to PATH if not already there
@@ -86,15 +86,15 @@ function fn {
     param([Parameter(ValueFromRemainingArguments)]`$args)
     
     if (`$args.Count -eq 0) {
-        & fn.exe
+        & fast-nav.exe
         return
     }
     
     `$firstArg = `$args[0]
     if (`$firstArg -in @('save', 'list', 'delete', 'path', 'edit', 'cleanup')) {
-        & fn.exe @args
+        & fast-nav.exe @args
     } else {
-        `$dir = & fn.exe navigate @args
+        `$dir = & fast-nav.exe navigate @args
         if (`$dir -and (Test-Path `$dir)) {
             Set-Location `$dir
         }
@@ -115,11 +115,11 @@ Register-ArgumentCompleter -CommandName fn -ScriptBlock {
     } elseif (`$firstArg -in @('delete', 'path', 'navigate') -or (`$commandAst.CommandElements.Count -eq 2 -and `$firstArg -notin @('save', 'list', 'edit', 'cleanup'))) {
         # Complete aliases
         try {
-            `$aliases = & fn.exe list --quiet 2>`$null | ForEach-Object { `$_.Split()[0] }
+            `$aliases = & fast-nav.exe list --quiet 2>`$null | ForEach-Object { `$_.Split()[0] }
             `$aliases | Where-Object { `$_ -like "`$wordToComplete*" } |
                 ForEach-Object { [System.Management.Automation.CompletionResult]::new(`$_, `$_, 'ParameterValue', `$_) }
         } catch {
-            # Ignore errors if fn is not available or no bookmarks exist
+            # Ignore errors if fast-nav is not available or no bookmarks exist
         }
     }
 }
