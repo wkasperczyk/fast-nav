@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/rethil/fn/internal/storage"
+	"github.com/rethil/fast-nav/internal/storage"
 )
 
 var pathCmd = &cobra.Command{

@@ -5,7 +5,7 @@ import (
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/spf13/cobra"
-	"github.com/rethil/fn/internal/storage"
+	"github.com/rethil/fast-nav/internal/storage"
 )
 
 var deleteCmd = &cobra.Command{

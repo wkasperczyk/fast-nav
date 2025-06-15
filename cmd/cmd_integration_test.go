@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/rethil/fn/internal/storage"
+	"github.com/rethil/fast-nav/internal/storage"
 )
 
 // Integration tests for CLI commands

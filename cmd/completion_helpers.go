@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
-	"github.com/rethil/fn/internal/storage"
+	"github.com/rethil/fast-nav/internal/storage"
 )
 
 // aliasCompletionFunc provides completion for alias names

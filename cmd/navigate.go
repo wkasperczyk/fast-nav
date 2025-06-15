@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/fatih/color"
-	"github.com/rethil/fn/internal/storage"
+	"github.com/rethil/fast-nav/internal/storage"
 	"github.com/spf13/cobra"
 )
 

@@ -10,16 +10,16 @@ This is `fn` - a Go-based command-line tool for fast directory navigation using 
 
 ```bash
 # Build the project
-go build -o fn
+go build -o fast-nav
 
 # Install (requires pre-built binary)
 sudo ./scripts/install.sh
 
 # Manual testing during development
-./fn save test
-./fn list
-./fn delete test
-./fn path test
+./fast-nav save test
+./fast-nav list
+./fast-nav delete test
+./fast-nav path test
 ```
 
 ## Architecture
